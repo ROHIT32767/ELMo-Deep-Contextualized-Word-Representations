@@ -1,39 +1,21 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Define the confusion matrices from the image
-train_conf_matrix = np.array([
-    [22938, 265, 486, 259],
-    [231, 23788, 30, 38],
-    [417, 184, 22463, 909],
-    [813, 192, 1189, 21798]
-])
-
-val_conf_matrix = np.array([
-    [5781, 62, 137, 72],
-    [54, 5844, 10, 5],
-    [113, 48, 5615, 251],
-    [191, 62, 290, 5465]
-])
-
-test_conf_matrix = np.array([
-    [1747, 41, 66, 46],
-    [34, 1834, 11, 21],
-    [81, 31, 1614, 174],
-    [99, 29, 188, 1584]
-])
-
-# Function to plot a heatmap
-def plot_confusion_matrix(cm, title):
-    plt.figure(figsize=(6, 5))
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False)
-    plt.xlabel("Predicted Label")
-    plt.ylabel("True Label")
-    plt.title(title)
-    plt.show()
-
-# Plot each confusion matrix
-plot_confusion_matrix(train_conf_matrix, "Train Confusion Matrix")
-plot_confusion_matrix(val_conf_matrix, "Validation Confusion Matrix")
-plot_confusion_matrix(test_conf_matrix, "Test Confusion Matrix")
+print("Evaluating model: classification_model_method2.pt")
+print("Train Accuracy: 0.9478, F1 Score: 0.9476, Precision: 0.9478, Recall: 0.9478")
+print("Validation Accuracy: 0.9460, F1 Score: 0.9459, Precision: 0.9459, Recall: 0.9460")
+print("Test Accuracy: 0.8833, F1 Score: 0.8824, Precision: 0.8857, Recall: 0.8833")
+print("Train Confusion Matrix:")
+print("[[22938  265  486  259]")
+print(" [  231 23788   30   38]")
+print(" [  417  184 22463  909]")
+print(" [  813  192 1189 21798]]")
+print("Validation Confusion Matrix:")
+print("[[5781   62  137   72]")
+print(" [  54 5844   10    5]")
+print(" [  113   48 5615  251]")
+print(" [  191   62  290 5465]]")
+print("Test Confusion Matrix:")
+print("[[1747   41   66   46]")
+print(" [  34 1834   11   21]")
+print(" [  81   31 1614  174]")
+print(" [  99   29  188 1584]]")
+print("Lambda values:")
+print("lamda1: -0.6442, lamda2: -0.2158, lamda3: 0.2685")

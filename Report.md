@@ -111,9 +111,29 @@ The `train_classifier` function trains the LSTM-based classifier:
   - Formula:
     $$ x = f(e_0, h_0, h_1) $$
   - The function applies a non-linearity (`ReLU` or `Tanh`) to enhance feature learning.
+![Results](utils/method3_results.png)
+![Train Confusion Matrix](utils/3_train.png)
+![Test Confusion Matrix](utils/3_test.png)
+![Validation Confusion Matrix](utils/3_val.png)
 
 ### Comparision of methods
+The model employing a **learnable function** significantly outperforms both models that rely on fixed or trainable lambda parameters.
 
+**Performance Ranking (Descending):**
+
+1.  **Model with Learnable Function:** Exhibits the highest overall performance, indicating a superior ability to adapt to the data's underlying patterns. This suggests the function's flexibility allows for better representation and generalization.
+
+2.  **Model with Trainable Lambdas (λs):** Achieves intermediate performance. While capable of adaptation through trainable lambdas, it doesn't match the efficacy of the fully learnable function.
+
+3.  **Model with Frozen Lambdas (λs):** Demonstrates the lowest performance, highlighting the limitations of fixed parameters in capturing data complexities.
+
+**Conclusion:**
+
+The results strongly suggest that **allowing the model to learn the function itself, rather than relying on pre-defined or constrained parameters, yields the most effective and adaptable solution.** This underscores the importance of model flexibility and capacity in achieving optimal performance.
+
+**Simplified Order:**
+
+`Learnable Function > Trainable λs > Frozen λs`
 
 
 # Comparing SVD , Skipgram with Negative Sampling , CBOW and ELMO
@@ -127,14 +147,10 @@ The `train_classifier` function trains the LSTM-based classifier:
 ![CBOW](utils/CBOW.png)
 
 ### BEST ELMO
-![BEST ELMO](utils/method2_results.png)
-
+![BEST ELMO](utils/method3_results.png)
 
 
 # Comparing ELMo with SVD, Skip-gram, and CBOW
-
-## Introduction
-Word embeddings are fundamental to Natural Language Processing (NLP), enabling machines to understand textual data. Various techniques exist for generating embeddings, including **Singular Value Decomposition (SVD)**, **Skip-gram**, **Continuous Bag of Words (CBOW)**, and **ELMo (Embeddings from Language Models)**. This document explores why ELMo outperforms traditional methods.
 
 ## 1. Contextualized Representations
 - **ELMo**: Generates embeddings dynamically based on the surrounding words, effectively capturing polysemy and context-dependent meanings.
